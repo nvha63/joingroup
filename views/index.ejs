@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GROUP</title>
+  <style>
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    h1,
+    table {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CLASS PTIT</h1>
+  <%var group = 5 %>
+  <%var student  = 10%>
+  <table>
+    <% for(let i=1;i<=group;i++){ %>
+    <th> GROUP <%=i%> </th>
+    <%}%>
+    <% for(let i=0;i<student;i++){ %>
+    <tr>
+      <% for(let i=0;i<group;i++){ %>
+      <td>
+        <input type="text">
+      </td>
+      <%}%>
+  </tr>
+  <%}%>
+  </table>
+  <input class="mh">
+    <input id="haha">
+    <h1>nghhia</h1>
+  <form action="">
+    <input class="mh">
+    <input class="mh">
+    
+  </form>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    $(function () {
+      var socket = io();
+      $('form').submit(function (e) {
+        e.preventDefault(); // prevents page reloading
+        socket.emit('chat message', $('.mh').val());
+        $('.mh').val('');
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
